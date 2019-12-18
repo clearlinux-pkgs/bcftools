@@ -4,7 +4,7 @@
 #
 Name     : bcftools
 Version  : 1.10.1
-Release  : 1
+Release  : 2
 URL      : https://github.com/samtools/bcftools/releases/download/1.10.1/bcftools-1.10.1.tar.bz2
 Source0  : https://github.com/samtools/bcftools/releases/download/1.10.1/bcftools-1.10.1.tar.bz2
 Summary  : C library for high-throughput sequencing data formats
@@ -16,6 +16,7 @@ Requires: bcftools-license = %{version}-%{release}
 Requires: bcftools-man = %{version}-%{release}
 BuildRequires : bzip2-dev
 BuildRequires : curl-dev
+BuildRequires : pkgconfig(htslib)
 BuildRequires : pkgconfig(zlib)
 BuildRequires : xz-dev
 
@@ -68,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576690654
+export SOURCE_DATE_EPOCH=1576696209
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -77,11 +78,11 @@ export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
-%configure --disable-static
+%configure --disable-static --with-htslib=system
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1576690654
+export SOURCE_DATE_EPOCH=1576696209
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/bcftools
 cp %{_builddir}/bcftools-1.10.1/LICENSE %{buildroot}/usr/share/package-licenses/bcftools/5bcab80442b3e0dfbed363599edde1c85df6b396

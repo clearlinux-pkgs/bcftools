@@ -1,8 +1,5 @@
-libbz2.so.1.0
 libc.so.6
-libcurl.so.4
 libdl.so.2
-liblzma.so.5
+libhts.so.3
 libm.so.6
-libpthread.so.0
 libz.so.1
