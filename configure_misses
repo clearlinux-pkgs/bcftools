@@ -1,4 +1,2 @@
-Configure miss: libdeflate.h
-Configure miss: libdeflate_deflate_compress in -ldeflate
-Configure miss: CCHmac
-Configure miss: library containing HMAC
+Configure miss: gcc option to enable large file support
+Configure miss: gcc option to enable large file support
